@@ -1,4 +1,5 @@
 # Rocket-lannding-game
+
 import time
 
 old_position = 100                                                                    # This is inital value
@@ -12,6 +13,7 @@ new_fuel = 0
 new_position = 100
 new_velocity = 0
 
+
 while True:
     # formulas for calculate.
     new_fuel = old_fuel - int(thrusters)
@@ -19,9 +21,11 @@ while True:
     new_position = old_position + old_velocity + acceleration * 0.5
     new_velocity = old_velocity + acceleration
     print "P:{0}    V:{1}    F:{2}".format(new_position, new_velocity, new_fuel)       # Monitoring current situation.
+    
     if new_fuel <= 0:                                                                  # Rocket Crashed problem case.
         thrusters = 4
         print "{0}".format(thrusters)
+        
         while True:
             acceleration = gravity + int(thrusters)                                    # This is formulas for calculate.
             new_position = old_position + old_velocity + acceleration * 0.5
@@ -35,7 +39,7 @@ while True:
             print "P:{0}    V:{1}    F: 0 \n No fuel --rocket is in free-fall!!".format(new_position, new_velocity)
             thrusters=0
             time.sleep(1)
-
+            
     if new_position <= 0 :                                                          # Success Landing case
         print "P:0    V:{0}    F:{1}".format(new_velocity, new_fuel)
         print "Landing Successful!!"
