@@ -18,7 +18,6 @@ while True:
     acceleration = gravity + int(thrusters)
     new_position = old_position + old_velocity + acceleration * 0.5
     new_velocity = old_velocity + acceleration
-
     print "P:{0}    V:{1}    F:{2}".format(new_position, new_velocity, new_fuel)       # Monitoring current situation.
     if new_fuel <= 0:                                                                  # Rocket Crashed problem case.
         thrusters = 4
